@@ -6,6 +6,7 @@
 #include "frame.hpp"
 #include "medium.hpp"
 #include "sender.hpp"
+#include "receiver.hpp"
 
 int main() {
 	/*
@@ -25,17 +26,22 @@ int main() {
 
 	Medium to_recv = Medium(0.5);
 	Medium from_recv = Medium(0.5);
-	int data[] = {5, 4, 3, 2, 1};
+	int data_send[] = {5, 4, 3, 2, 1};
+	int data_recv[] = {-1, -1, -1, -1, -1};
 
-	Sender sender = Sender(data, &to_recv, &from_recv);
-	while (sender.last_sent < 4) {
+	Sender sender = Sender(data_send, &to_recv, &from_recv);
+	Receiver receiver = Receiver(data_recv, &to_recv, &from_recv);
+
+	while (sender.last_sent < 5) {
 		sender.send();
-		Frame frame = to_recv.read();
-		printf("%i %i %i\n", frame.is_valid, frame.payload, frame.seq);
-
-		frame = Frame(1, frame.seq, -1);
-		from_recv.write(&frame);
+		receiver.listen();
+		receiver.send();
 		sender.listen();
+
+		for (int i = 0; i < 5; i++) {
+			printf("%i\t", data_recv[i]);
+		}
+		printf("\n");
 	}
 	return 0;
 }
