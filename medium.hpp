@@ -3,6 +3,7 @@
  *
  */
 #pragma once
+#include <optional>
 #include "frame.hpp"
 
 class Medium {
@@ -13,6 +14,7 @@ class Medium {
 
 		void write(Frame *frame);
 		Frame read();
+		bool has_data();
 
 		Frame* cur_frame;
 };

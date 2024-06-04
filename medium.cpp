@@ -11,13 +11,16 @@ Medium::Medium(double prob) {
 void Medium::write(Frame *frame) {
 	assert(cur_frame == 0);
 
-	cur_frame = frame;
+	// copy frame from receiver "intp the cable"
+	cur_frame = new Frame(*frame);
 }
 
 Frame Medium::read() {
 	assert(cur_frame != 0);
 
+	// take the frame "out of the cable"
 	Frame frame = *cur_frame;
+	delete cur_frame;
 	cur_frame = 0;
 
 
@@ -28,3 +31,6 @@ Frame Medium::read() {
 	return frame;
 }
 
+bool Medium::has_data() {
+	return (cur_frame != 0);
+}
