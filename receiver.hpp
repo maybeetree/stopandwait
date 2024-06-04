@@ -2,13 +2,13 @@
 
 class Receiver {
 	public:
-		Receiver(int queue[], Medium *to_recv, Medium *from_recv);
+		Receiver(Payload queue[], Medium *to_recv, Medium *from_recv);
 
 		void listen();
 		void send();
 
 		Medium *to_recv, *from_recv;
-		int *queue;
+		Payload *queue;
 		int last_recvd;
 };
 

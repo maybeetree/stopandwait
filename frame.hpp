@@ -1,10 +1,11 @@
 #pragma once
+#include "consts.hpp"
 
 class Frame {
 
 	public:
 
-		Frame(bool is_valid, int seq, int payload) :
+		Frame(bool is_valid, int seq, Payload payload) :
 			is_valid(is_valid),
 			seq(seq),
 			payload(payload)
@@ -12,6 +13,6 @@ class Frame {
 
 		bool is_valid;
 		int seq;
-		int payload;
+		Payload payload;
 };
 

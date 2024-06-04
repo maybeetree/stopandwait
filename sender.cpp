@@ -1,6 +1,6 @@
 #include "sender.hpp"
 
-Sender::Sender(int queue[], Medium *to_recv, Medium *from_recv) {
+Sender::Sender(Payload queue[], Medium *to_recv, Medium *from_recv) {
 	this -> queue = queue;
 	this -> to_recv = to_recv;
 	this -> from_recv = from_recv;

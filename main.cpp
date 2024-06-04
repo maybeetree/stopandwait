@@ -3,6 +3,7 @@
 #include <time.h>
 #include <stdio.h>
 
+#include "consts.hpp"
 #include "frame.hpp"
 #include "medium.hpp"
 #include "sender.hpp"
@@ -26,8 +27,8 @@ int main() {
 
 	Medium to_recv = Medium(0.5);
 	Medium from_recv = Medium(0.5);
-	int data_send[] = {5, 4, 3, 2, 1};
-	int data_recv[] = {-1, -1, -1, -1, -1};
+	Payload data_send[] = {5, 4, 3, 2, 1};
+	Payload data_recv[] = {-1, -1, -1, -1, -1};
 
 	Sender sender = Sender(data_send, &to_recv, &from_recv);
 	Receiver receiver = Receiver(data_recv, &to_recv, &from_recv);
