@@ -1,5 +1,6 @@
 
 #include <cstdlib>
+#include <cassert>
 #include <time.h>
 #include <stdio.h>
 
@@ -9,37 +10,34 @@
 #include "sender.hpp"
 #include "receiver.hpp"
 
-int main() {
-	/*
-	Frame frame = Frame(1, 2, 3);
-	printf("%i %i %i\n", frame.is_valid, frame.seq, frame.payload);
+int main(int argc, char *argv[]) {
+	assert(argc == 3);
+	double p_fail_dat = std::atof(argv[1]);
+	double p_fail_ack = std::atof(argv[2]);
 
-	Medium medium = Medium(0.5);
-	for (int i = 0; i < 20; i++) {
-		Frame frame = Frame(1, 2, 3);
-		medium.write(&frame);
-		Frame read = medium.read();
-		printf("%i %i\n", frame.is_valid, read.is_valid);
+	int len_data = 0;
+	Payload data_send[MAX_LEN_DATA];
+	Payload data_recv[MAX_LEN_DATA];
+
+	while (scanf("%d", data_send + len_data) > 0) {
+		len_data++;
 	}
-	*/
 
 	std::srand(time(0));
 
-	Medium to_recv = Medium(0.5);
-	Medium from_recv = Medium(0.5);
-	Payload data_send[] = {5, 4, 3, 2, 1};
-	Payload data_recv[] = {-1, -1, -1, -1, -1};
+	Medium to_recv = Medium(p_fail_dat);
+	Medium from_recv = Medium(p_fail_ack);
 
 	Sender sender = Sender(data_send, &to_recv, &from_recv);
 	Receiver receiver = Receiver(data_recv, &to_recv, &from_recv);
 
-	while (sender.last_sent < 5) {
+	while (sender.last_sent < len_data) {
 		sender.send();
 		receiver.listen();
 		receiver.send();
 		sender.listen();
 
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < len_data; i++) {
 			printf("%i\t", data_recv[i]);
 		}
 		printf("\n");

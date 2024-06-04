@@ -1,4 +1,4 @@
 #pragma once
 typedef int Payload;
-const int MAX_DATA_LENGTH=99999;
+const int MAX_LEN_DATA=99999;
 
