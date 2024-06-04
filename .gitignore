@@ -1,0 +1,14 @@
+# VIM files
+*.sw*
+*.vim
+*.obsession*
+
+*.bak
+*.old
+*.log
+
+# Compile artifacts
+snw
+*.a
+*.o
+
