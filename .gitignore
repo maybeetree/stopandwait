@@ -12,5 +12,11 @@ snw
 *.a
 *.o
 
+# Experiment output
 dat/*
+
+# Compiled report
+*.pdf
+
+*.typ
 
