@@ -24,11 +24,11 @@ from receiver to sender getting corrupted.
 Probability is a float between 0 and 1.
 The program then reads the data to be transmitted from stdin,
 as a bunch of numbers separated by whitespace (newline, space or tab)
-until OEF.
+until EOF.
 
 The output is a bunch of lines,
 where each line represents the receiver's buffer
-at each timestep.
+at each timestep as tab-separated decimal numbers.
 The buffer fills up from left to right
 untill all data is received.
 The buffer is not initialized,
