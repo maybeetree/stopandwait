@@ -1,4 +1,4 @@
-#include "receiver.hpp"
+#include "../inc/receiver.hpp"
 
 Receiver::Receiver(Payload queue[], Medium *to_recv, Medium *from_recv) {
 	this -> queue = queue;

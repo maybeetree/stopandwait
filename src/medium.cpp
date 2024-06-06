@@ -1,6 +1,6 @@
 #include <cassert>
-#include "medium.hpp"
-#include "random.hpp"
+#include "../inc/medium.hpp"
+#include "../inc/random.hpp"
 
 Medium::Medium(double prob) {
 	assert(prob <= 1 && prob >= 0);

@@ -4,11 +4,11 @@
 #include <time.h>
 #include <stdio.h>
 
-#include "consts.hpp"
-#include "frame.hpp"
-#include "medium.hpp"
-#include "sender.hpp"
-#include "receiver.hpp"
+#include "../inc/consts.hpp"
+#include "../inc/frame.hpp"
+#include "../inc/medium.hpp"
+#include "../inc/sender.hpp"
+#include "../inc/receiver.hpp"
 
 int main(int argc, char *argv[]) {
 	assert(argc == 3);
@@ -19,6 +19,9 @@ int main(int argc, char *argv[]) {
 	Payload data_send[MAX_LEN_DATA];
 	Payload data_recv[MAX_LEN_DATA];
 
+	// This is C code lol, std::cin is the c++ way
+	// and vectros so you don't need the lngth
+	// Also I think they expected you to open the file
 	while (scanf("%d", data_send + len_data) > 0) {
 		len_data++;
 	}
@@ -37,6 +40,7 @@ int main(int argc, char *argv[]) {
 		receiver.send();
 		sender.listen();
 
+		// This is also C, std::cout is the cpp way
 		for (int i = 0; i < len_data; i++) {
 			printf("%i\t", data_recv[i]);
 		}

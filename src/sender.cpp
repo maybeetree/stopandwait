@@ -1,4 +1,4 @@
-#include "sender.hpp"
+#include "../inc/sender.hpp"
 
 Sender::Sender(Payload queue[], Medium *to_recv, Medium *from_recv) {
 	this -> queue = queue;

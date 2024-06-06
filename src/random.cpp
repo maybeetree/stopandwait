@@ -1,4 +1,4 @@
-#include "random.hpp"
+#include "../inc/random.hpp"
 #include <cstdlib>
 
 double rand01() {
