@@ -8,7 +8,7 @@ We are still working on this!
 
 ## Building
 
-GCC and Make are needed to compile this program.
+G++ and Make are needed to compile this program.
 
 ```
 make
