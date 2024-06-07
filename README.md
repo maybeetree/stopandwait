@@ -2,10 +2,6 @@
 
 This is a C++98 program to simulate the stop-and-wait protocol.
 
-## Work in progress
-
-We are still working on this!
-
 ## Building
 
 G++ and Make are needed to compile this program.
