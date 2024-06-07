@@ -1,5 +1,9 @@
 #/bin/sh
 
+# This forces `seq` to use period as decimal point separator,
+# regardless of system locale.
+export LC_ALL=C
+
 mkdir -p dat
 
 echo "size, iters" > dat/e1.csv
