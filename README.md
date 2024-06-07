@@ -72,6 +72,22 @@ Other shells and coreutils implementations are
 not guaranteed to work,
 but probably will.
 
+## Compiling the report
+
+Typst is required to compile the report.
+While compiling, there must be an internet connection,
+so that typst can download the required `plotst` package.
+The report reads experiment data from `/dat`,
+therefore it is necessary to run the experiments before
+compiling the report.
+
+Once these requirements are satisfied,
+the report can be compiled using the typst command line tool:
+
+```
+typst compile report.typ 
+```
+
 ## License
 
 You should have received a copy of the CC0 Public Domain Dedication
